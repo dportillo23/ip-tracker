@@ -41,6 +41,8 @@ export default function App() {
     
   }, [data])
 
+  console.error(error)
+
   return (
     loading || !ipData ? <Loading /> : 
     <ThemeProvider theme={theme}>
@@ -51,7 +53,7 @@ export default function App() {
         <MyCard location={ipData.location} ip={ipData.ip} isp={ipData.isp}/>
       </header>
       <main style={{height: '70vh'}}>
-    <MyMapComponent position={[ipData.location.lat, ipData.location.lng]} />
+    <MyMapComponent location={ipData.location} />
       </main>
     </ThemeProvider>
   );

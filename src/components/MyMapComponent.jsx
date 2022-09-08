@@ -10,17 +10,17 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-const MyMapComponent = ({ position }) => {
+const MyMapComponent = ({ location }) => {
 
   
   return (
-    <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%" }}>
-    <ChangeView center={position} zoom={13} />
+    <MapContainer center={[location.lat, location.lng]} zoom={13} style={{ height: "100%", width: "100%" }}>
+    <ChangeView center={[location.lat, location.lng]} zoom={13} />
     <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       
-      <Marker position={position} icon={new Icon({iconUrl: markerIcon, iconSize: [25, 41], iconAnchor: [12, 41]})}>
-        <Popup>Text</Popup>
+      <Marker position={[location.lat, location.lng]} icon={new Icon({iconUrl: markerIcon})}>
+        <Popup>{location.city} <br /> {location.region} <br /> <strong>{location.country}</strong></Popup>
       </Marker>
     </MapContainer>
   );
