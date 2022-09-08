@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { Typography, CssBaseline } from "@mui/material";
 import background from './images/pattern-bg.png'
-import MyInput from "./components/MyInput";
-import MyCard from "./components/MyCard";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import useFetch from "./hooks/useFetch";
-import MyMapComponent from "./components/MyMapComponent";
+
+import {MyMapComponent, MyCard, MyInput, Loading} from './components'
 
 
 const theme = createTheme({
@@ -43,7 +42,7 @@ export default function App() {
   }, [data])
 
   return (
-    loading || !ipData ? <h1>Loading...</h1> : 
+    loading || !ipData ? <Loading /> : 
     <ThemeProvider theme={theme}>
     <CssBaseline/>
       <header style={headerStyle}>

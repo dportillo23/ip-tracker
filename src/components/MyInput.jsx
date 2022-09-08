@@ -35,7 +35,6 @@ export default function MyInput({ipAddress, setIpAddress, setIpData}) {
 
     const fetchAndSet = async (ip) => {
         const data = await API.getIPLocation(ip)
-        console.log(data.data);
         setIpData(data.data)
     }
 

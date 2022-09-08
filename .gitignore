@@ -20,3 +20,7 @@ node_module/
 # History folder
 .history/
 node_modules
+.env
+.env/
+
+build/
